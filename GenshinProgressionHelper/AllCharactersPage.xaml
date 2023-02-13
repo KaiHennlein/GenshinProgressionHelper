@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:GenshinProgressionHelper.ViewModels"
+             x:Class="GenshinProgressionHelper.AllCharactersPage">
+    <ScrollView>
+        <ListView 
+            x:Name="CharacterList" 
+            ItemsSource="{Binding Characters}"
+            SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell x:Name="CharacterCell">
+                        <Grid x:Name="CharacterGrid">
+                            <Label 
+                                x:Name="CharacterName" 
+                                Grid.Row="0" 
+                                Grid.Column="0" 
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Padding="5" 
+                                Margin="5" 
+                                Text="{Binding Name}">
+                            </Label>
+                            <Button
+                                Text="Character Details"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Padding="5"
+                                Margin="5"
+                                x:Name="ShowCharacterDetails"
+                                Clicked="ShowCharacterDetails_Clicked"/>
+                            <Button
+                                Text="Add"
+                                Grid.Row="0" 
+                                Grid.Column="2" 
+                                HorizontalOptions="EndAndExpand"
+                                Padding="5"
+                                Margin="5"
+                                x:Name="AddEntry"
+                                Clicked="AddEntry_Clicked"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.BindingContext>
+                <ViewModels:CharacterList/>
+            </ListView.BindingContext>
+        </ListView>
+    </ScrollView>
+</ContentPage>

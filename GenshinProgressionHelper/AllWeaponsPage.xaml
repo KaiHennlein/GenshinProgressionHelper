@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:GenshinProgressionHelper.ViewModels"
+             x:Class="GenshinProgressionHelper.AllWeaponsPage">
+    <ScrollView>
+        <ListView 
+            x:Name="WeaponList" 
+            ItemsSource="{Binding Weapons}"
+            SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell x:Name="WeaponCell">
+                        <Grid x:Name="WeaponGrid">
+                            <Label 
+                                x:Name="WeaponName" 
+                                Grid.Row="0" 
+                                Grid.Column="0" 
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Padding="5"
+                                Margin="5"
+                                Text="{Binding Name}"/>
+                            <Button
+                                x:Name="ShowWeaponDetails"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Padding="5"
+                                Margin="5"
+                                Text="Details"
+                                Clicked="ShowWeaponDetails_Clicked"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.BindingContext>
+                <ViewModels:WeaponList/>
+            </ListView.BindingContext>
+        </ListView>
+    </ScrollView>
+</ContentPage>

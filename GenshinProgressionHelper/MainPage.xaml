@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:GenshinProgressionHelper.ViewModels"
+             x:Class="GenshinProgressionHelper.MainPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+                x:Name="CharacterTalentDomainLabel"
+                Text="Character talent domains available today:"
+                HorizontalOptions="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="10"/>
+
+            <ListView 
+                x:Name="CharacterTalentDomainList" 
+                ItemsSource="{Binding CharactersWithDomainsAvailable}"
+                Margin="5"
+                SelectionMode="None"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Frame>
+                                    <VerticalStackLayout Margin="1">
+                                        <Label
+                                            Text="{Binding Name}"  
+                                            HorizontalOptions="Center" 
+                                            Padding="5"
+                                            />
+
+                                        <Label
+                                            Text="{Binding TalentPhilosophyType, StringFormat='Type:   {0}'}" 
+                                            HorizontalOptions="Center"
+                                            Padding="5"
+                                            />
+
+                                        <Label 
+                                            Text="{Binding TalentDomain, StringFormat='Source:   {0}'}"
+                                            HorizontalOptions="Center"
+                                            Padding="5"/>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.BindingContext>
+                    <ViewModels:Recommandations/>
+                </ListView.BindingContext>
+            </ListView>
+
+            <Label
+                x:Name="RespawnedCharacterMaterialsLabel"
+                Text="Respawned Character Materials:"
+                HorizontalOptions="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="10"/>
+
+            <ListView 
+                x:Name="RespawnedCharacterMaterialsList" 
+                ItemsSource="{Binding CharactersWithRespawnedMaterials}"  
+                Margin="5"
+                SelectionMode="None"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Frame>
+                                    <VerticalStackLayout>
+                                        <Label 
+                                            x:Name="CharacterName" 
+                                            HorizontalOptions="Center" 
+                                            Padding="5"
+                                            Text="{Binding Name}"/>
+
+                                        <HorizontalStackLayout
+                                            HorizontalOptions="Center">
+                                            <Label 
+                                                 Text="{Binding LocalSpecialtyCount, StringFormat='{0}x'}"
+                                                 VerticalOptions="Center" 
+                                                 HorizontalOptions="Start"
+                                                 Padding="5"
+                                                 Margin="5"/>
+
+                                            <Label 
+                                                Text="{Binding LocalSpecialty, StringFormat='{0}'}"
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="End"
+                                                Padding="5"
+                                                Margin="5"/>
+                                        </HorizontalStackLayout>
+
+                                        <Button
+                                            x:Name="UpdateLastFarmingDate"
+                                            Text="Farmed today" 
+                                            HorizontalOptions="Center"
+                                            Padding="5"
+                                            Margin="5"
+                                            Clicked="UpdateLastFarmingDate_Clicked"/>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.BindingContext>
+                    <ViewModels:Recommandations/>
+                </ListView.BindingContext>
+            </ListView>
+
+            <Label
+                x:Name="WeaponDomainLabel"
+                Text="Weapon material domains available today:"
+                HorizontalOptions="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="10"/>
+
+            <ListView 
+                x:Name="WeaponDomainList" 
+                ItemsSource="{Binding WeaponsWithDomainsAvailable}"
+                Margin="5"
+                SelectionMode="None"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Frame>
+                                    <VerticalStackLayout>
+                                        <Label
+                                            Text="{Binding Name}"
+                                            HorizontalOptions="Center" 
+                                            Padding="5"/>
+
+                                        <Label
+                                            Text="{Binding WeaponMaterialType, StringFormat='Type:   {0}'}"
+                                            HorizontalOptions="Center"
+                                            Padding="5"/>
+
+                                        <Label 
+                                            Text="{Binding WeaponDomain, StringFormat='Source:   {0}'}" 
+                                            HorizontalOptions="Center"
+                                            Padding="5"/>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.BindingContext>
+                    <ViewModels:Recommandations/>
+                </ListView.BindingContext>
+            </ListView>
+
+            <Button 
+                Text="Debug menu" 
+                Clicked="Button_Clicked"
+                x:Name="DebugMenu"  
+                VerticalOptions="CenterAndExpand"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:GenshinProgressionHelper.ViewModels"
+             x:Class="GenshinProgressionHelper.MyCharactersPage">
+    <ScrollView>
+        <ListView 
+            x:Name="EntryList" 
+            ItemsSource="{Binding Entries}"
+            Margin="5"
+            SelectionMode="None"
+            HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Frame>
+                                <VerticalStackLayout>
+                                    <Label 
+                                        x:Name="CharacterName" 
+                                        HorizontalOptions="Start"
+                                        Padding="5"
+                                        Text="{Binding CharacterName, StringFormat='Name:   {0}'}"/>
+
+                                    <HorizontalStackLayout 
+                                        HorizontalOptions="Start"
+                                        Padding="5">
+                                        <Label 
+                                            x:Name="WeaponName" 
+                                            Padding="5"
+                                            Text="{Binding WeapponName, StringFormat='Weapon:   {0}'}"/>
+                                        <Button
+                                            x:Name="ChangeWeapon"
+                                            Padding="5"
+                                            Text="Change Weapon"
+                                            BindingContext="{Binding Entries}"
+                                            Clicked="ChangeWeapon_Clicked"/>
+                                    </HorizontalStackLayout>
+
+                                    <Button
+                                    Text="Remove" 
+                                    HorizontalOptions="End"
+                                    Padding="5"
+                                    x:Name="DeleteEntry"
+                                    Clicked="DeleteEntry_Clicked"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.BindingContext>
+                <ViewModels:UserEntries/>
+            </ListView.BindingContext>
+        </ListView>
+    </ScrollView>
+</ContentPage>

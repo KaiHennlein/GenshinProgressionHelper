@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GenshinProgressionHelper.CharacterDetailsPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+                Text="Character details:"
+                FontSize="30"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+            
+            <Label 
+                Text="{Binding Name, StringFormat='Name:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding Fullname, StringFormat='Full name:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding Title, StringFormat='Title:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding Rarity, StringFormat='Rarity:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding Element, StringFormat='Element:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding Weapontype, StringFormat='Weapontype:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding WikiLink, StringFormat='Wiki:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="Ascention Costs:"
+                FontSize="30"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding MoraCount, StringFormat='Mora:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="Gemstones:"
+                FontSize="20"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding GemstoneSliverCount, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding GemstoneSliver, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding GemstoneFragmentCount, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding GemstoneFragment, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding GemstoneChunkCount, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding GemstoneChunk, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding GemstoneCount, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding Gemstone, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <Label 
+                Text="Local Specialty:"
+                FontSize="20"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding LocalSpecialtyCount, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding LocalSpecialty, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <Label 
+                Text="Enemy Drops:"
+                FontSize="20"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding EnemyDropTier1Count, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding EnemyDropTier1, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding EnemyDropTier2Count, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding EnemyDropTier2, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding EnemyDropTier3Count, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding EnemyDropTier3, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <Label 
+                Text="Boss material:"
+                FontSize="20"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding BossMaterialCount, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding BossMaterial, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <Label 
+                Text="Level up costs:"
+                FontSize="30"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding MoraLevelUpTo80Count, StringFormat='Mora up to level 80:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding MoraLevelUpTo90Count, StringFormat='Mora up to level 90:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding HerosWitTo80Count, StringFormat='Heros wits up to level 80:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding HerosWitTo90Count, StringFormat='Heros wit cost up to level 90:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="Costs per talent:"
+                FontSize="30"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding MoraTalentCountLvl9, StringFormat='Mora cost up to talent level 9:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+            
+            <Label 
+                Text="{Binding MoraTalentCountLvl10, StringFormat='Mora cost up to talent level 10:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="Talent domain materials:"
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding TalentTeachingCountLvl9, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding TalentTeachingType, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding TalentGuideCountLvl9, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding TalentGuideType, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding TalentPhilosophyCountLvl9, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding TalentPhilosophyType, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding TalentPhilosophyCountLvl10, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding TalentPhilosophyType, StringFormat='{0} (For level 10)'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <Label
+                Text="Talent domain availability:"
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label 
+                Text="{Binding TalentDomain, StringFormat='Source:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand">
+                <Label 
+                    Text="Days:"
+                    Padding="5"
+                    Margin="5"/>
+                <Label 
+                    Text="{Binding TalentDomainFirstDay, StringFormat='{0},'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label 
+                    Text="{Binding TalentDomainSecondDay, StringFormat='{0},'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label 
+                    Text="{Binding TalentDomainThirdDay, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

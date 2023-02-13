@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GenshinProgressionHelper.WeaponDetailsPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+                Text="Weapon details:"
+                FontSize="30"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="{Binding Name, StringFormat='Name:   {0}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="{Binding Weapontype, StringFormat='Weapontype:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="{Binding Rarity, StringFormat='Rarity:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="{Binding BaseAtk, StringFormat='Base attack:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+            
+            <Label
+                Text="{Binding SubStat, StringFormat='Substat:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="{Binding WikiKink, StringFormat='Wiki:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="Level up costs:"
+                FontSize="30"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="{Binding MoraCount, StringFormat='Mora:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="{Binding MysticOreCount, StringFormat='Mystic Ore:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="Ascenction costs:"
+                FontSize="30"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="{Binding AscentionMoraCost, StringFormat='Mora:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <Label
+                Text="Weapon domain materials:"
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding WeaponDomainTier2Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding WeaponDomainTier2, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding WeaponDomainTier3Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding WeaponDomainTier3, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding WeaponDomainTier4Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding WeaponDomainTier4, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding WeaponDomainTier5Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding WeaponDomainTier5, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <Label
+                Text="{Binding WeaponDomain, StringFormat='Source:   {0}'}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand">
+                <Label 
+                    Text="Talent domain available at:"
+                    Padding="5"
+                    Margin="5"/>
+                <Label 
+                    Text="{Binding WeaponDomainFirstDay, StringFormat='{0},'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label 
+                    Text="{Binding WeaponDomainSecondDay, StringFormat='{0},'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label 
+                    Text="{Binding WeaponDomainThirdDay, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <Label
+                Text="First enemy drops:"
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding FirstEnemyDropTier2Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding FirstEnemyDropTier2, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding FirstEnemyDropTier3Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding FirstEnemyDropTier3, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding FirstEnemyDropTier4Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding FirstEnemyDropTier4, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <Label
+                Text="Second enemy drops:"
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Padding="5"
+                Margin="5"/>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding SecondEnemyDropTier1Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding SecondEnemyDropTier1, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding SecondEnemyDropTier2Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding SecondEnemyDropTier2, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand">
+                <Label
+                    Text="{Binding SecondEnemyDropTier3Cost, StringFormat='{0}x'}"
+                    Padding="5"
+                    Margin="5"/>
+                <Label
+                    Text="{Binding SecondEnemyDropTier3, StringFormat='{0}'}"
+                    Padding="5"
+                    Margin="5"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
