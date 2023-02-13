@@ -47,7 +47,7 @@ namespace GenshinProgressionHelper
                 //Gets the talents with costs for all characters
                 characterTalentsList = await GetCharacterTalentsAsync(characterNameList);
                 //Combines character details and talents as well as dump all unnesscary values 
-                var talentMaterials = ApiCallsForCharacters.GetTalentMaterialTypes();
+                var talentMaterials = GetTalentMaterialTypes();
                 characterList = ListFunctions.MergeCharacterLists(characterDetailsList, characterTalentsList, talentMaterials);
             }
             catch (Exception e)
