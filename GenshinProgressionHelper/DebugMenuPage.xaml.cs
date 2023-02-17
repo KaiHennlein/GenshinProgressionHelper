@@ -2,7 +2,7 @@ namespace GenshinProgressionHelper;
 
 public partial class DebugMenuPage : ContentPage
 {
-    int count = 0;
+    //int count = 0;
     public DebugMenuPage()
 	{
 		InitializeComponent();

@@ -7,6 +7,8 @@ public partial class MainPage : ContentPage
 {
     private Recommandations viewModel;
     public static bool entryWasChanged = false;
+    private static bool placeHolderIsActive = false;
+    private Label placeHolder = new Label();
 
     public MainPage()
 	{
@@ -17,6 +19,7 @@ public partial class MainPage : ContentPage
         this.WeaponDomainList.ItemsSource = viewModel.WeaponsWithDomainsAvailable;
         this.RespawnedCharacterMaterialsList.ItemsSource = viewModel.CharactersWithRespawnedMaterials;
         ChangeVisibility();
+        AddPlaceHolder();
         //Hiding Debug menu
         bool available = false;
         this.DebugMenu.IsEnabled = available;
@@ -37,6 +40,7 @@ public partial class MainPage : ContentPage
             viewModel.UpdateRecommendations();
             entryWasChanged = false;
             ChangeVisibility();
+            RemovePlaceHolder();
         }
     }
 
@@ -44,7 +48,9 @@ public partial class MainPage : ContentPage
     {
         var button = sender as Button;
 
+        //Only works in Windows
         /*
+        
         Character character = button.BindingContext as Character;
 
         if (character != null)
@@ -61,6 +67,7 @@ public partial class MainPage : ContentPage
         }
         */
 
+        //Fix to work with Android
         VerticalStackLayout verticalStackLayout = button.Parent as VerticalStackLayout;
         if (verticalStackLayout != null)
         {
@@ -81,8 +88,49 @@ public partial class MainPage : ContentPage
         }
     }
 
+    private void AddPlaceHolder()
+    {  
+        if (viewModel.CharactersWithDomainsAvailable.Count == 0 && viewModel.CharactersWithRespawnedMaterials.Count == 0 && viewModel.WeaponsWithDomainsAvailable.Count == 0)
+        {
+            placeHolder.FontSize = 20;
+            placeHolder.FontAttributes = FontAttributes.Bold;
+            placeHolder.HorizontalTextAlignment = TextAlignment.Center;
+            placeHolder.Padding = 10;
+            placeHolder.Text = "No materials available today";
+            this.AvailabilityList.Add(placeHolder);
+            placeHolderIsActive = true;
+        }
+        else if (App.UserDatabase.GetAllEntries().Count == 0)
+        {
+            placeHolder.FontSize = 20;
+            placeHolder.FontAttributes = FontAttributes.Bold;
+            placeHolder.HorizontalTextAlignment = TextAlignment.Center;
+            placeHolder.Padding = 10;
+            placeHolder.Text = "No characters added to your list";
+            this.AvailabilityList.Add(placeHolder);
+            placeHolderIsActive = true;
+        }
+    }
+
+    private void RemovePlaceHolder()
+    {
+        if (placeHolderIsActive)
+        {
+            if (viewModel.CharactersWithDomainsAvailable.Count != 0 && viewModel.CharactersWithRespawnedMaterials.Count != 0 && viewModel.WeaponsWithDomainsAvailable.Count != 0)
+            {
+                this.AvailabilityList.Remove(placeHolder);
+            } 
+            else if (App.UserDatabase.GetAllEntries().Count != 0)
+            {
+                this.AvailabilityList.Remove(placeHolder);
+            }
+        }
+    }
+
     private void ChangeVisibility()
     {
+        //Change visibility depending on availability
+
         if (viewModel.CharactersWithDomainsAvailable.Count == 0)
         {
             this.CharacterTalentDomainLabel.IsVisible = false;

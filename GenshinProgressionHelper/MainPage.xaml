@@ -4,7 +4,7 @@
              xmlns:ViewModels="clr-namespace:GenshinProgressionHelper.ViewModels"
              x:Class="GenshinProgressionHelper.MainPage">
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout x:Name="AvailabilityList">
             <Label
                 x:Name="CharacterTalentDomainLabel"
                 Text="Character talent domains available today:"

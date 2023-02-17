@@ -7,13 +7,16 @@ public partial class MyCharactersPage : ContentPage
 {
     private UserEntries viewModel;
     public static bool entryWasChanged = false;
+    private static bool placeHolderIsActive = false;
+    private Label placeHolder = new Label();
 
-	public MyCharactersPage()
+    public MyCharactersPage()
 	{
 		InitializeComponent();
         viewModel = new UserEntries();
         this.BindingContext = viewModel;
         this.EntryList.ItemsSource = viewModel.Entries;
+        AddPlaceHolder();
     }
 
     private async void DeleteEntry_Clicked(object sender, EventArgs e)
@@ -67,6 +70,7 @@ public partial class MyCharactersPage : ContentPage
         {
             viewModel.UpdateEntries();
             entryWasChanged = false;
+            RemovePlaceHolder();
         }
     }
 
@@ -94,7 +98,33 @@ public partial class MyCharactersPage : ContentPage
             }
         }
         
+        //Only works on Windows
         //var entry = button.BindingContext as UserEntry;
         //await Navigation.PushAsync(new WeaponSelectionPage(entry));
+    }
+
+    private void AddPlaceHolder()
+    {
+        if (App.UserDatabase.GetAllEntries().Count == 0)
+        {
+            placeHolder.FontSize = 20;
+            placeHolder.FontAttributes = FontAttributes.Bold;
+            placeHolder.HorizontalTextAlignment = TextAlignment.Center;
+            placeHolder.Padding = 10;
+            placeHolder.Text = "No characters added to your list";
+            this.StackLayout.Add(placeHolder);
+            placeHolderIsActive = true;
+        }
+    }
+
+    private void RemovePlaceHolder()
+    {
+        if (placeHolderIsActive)
+        {
+            if (App.UserDatabase.GetAllEntries().Count != 0)
+            {
+                this.StackLayout.Remove(placeHolder);
+            }
+        }
     }
 }
