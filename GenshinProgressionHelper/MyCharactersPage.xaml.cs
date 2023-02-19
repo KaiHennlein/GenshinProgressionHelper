@@ -1,5 +1,4 @@
 using GenshinProgressionHelper.ViewModels;
-using System.Collections.ObjectModel;
 
 namespace GenshinProgressionHelper;
 
@@ -56,6 +55,9 @@ public partial class MyCharactersPage : ContentPage
                         //userEntries.Remove(entry);
                         App.UserDatabase.Delete(entry.Id);
                         viewModel.UpdateEntries();
+                        entryWasChanged = true;
+                        MainPage.entryWasChanged = true;
+                        AddPlaceHolder();
                     }
                 }
             }
@@ -66,6 +68,7 @@ public partial class MyCharactersPage : ContentPage
     {
         base.OnAppearing();
 
+        //Updates the list if it was changed from another page
         if (entryWasChanged)
         {
             viewModel.UpdateEntries();
@@ -105,6 +108,7 @@ public partial class MyCharactersPage : ContentPage
 
     private void AddPlaceHolder()
     {
+        //Adds a placeholder if no characters are added
         if (App.UserDatabase.GetAllEntries().Count == 0)
         {
             placeHolder.FontSize = 20;

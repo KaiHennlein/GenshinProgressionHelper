@@ -1,5 +1,4 @@
 ﻿using GenshinProgressionHelper.ViewModels;
-using SQLite;
 
 namespace GenshinProgressionHelper;
 
@@ -35,11 +34,13 @@ public partial class MainPage : ContentPage
     {
         base.OnAppearing();
 
+        //Updates the list if it was changed from another page
         if (entryWasChanged)
         {
             viewModel.UpdateRecommendations();
             entryWasChanged = false;
             ChangeVisibility();
+            AddPlaceHolder();
             RemovePlaceHolder();
         }
     }
@@ -90,6 +91,7 @@ public partial class MainPage : ContentPage
 
     private void AddPlaceHolder()
     {  
+        //Adds a placholder if no material is available or if no character is selected
         if (viewModel.CharactersWithDomainsAvailable.Count == 0 && viewModel.CharactersWithRespawnedMaterials.Count == 0 && viewModel.WeaponsWithDomainsAvailable.Count == 0)
         {
             placeHolder.FontSize = 20;
@@ -130,7 +132,6 @@ public partial class MainPage : ContentPage
     private void ChangeVisibility()
     {
         //Change visibility depending on availability
-
         if (viewModel.CharactersWithDomainsAvailable.Count == 0)
         {
             this.CharacterTalentDomainLabel.IsVisible = false;
